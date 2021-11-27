@@ -1,8 +1,10 @@
 
 package proyectopoo2;
 
+import java.io.Serializable;
 
-class DatosCliente {
+
+class DatosCliente implements Serializable{
    private String nombre;
    private String apellido;
    private String correo;
