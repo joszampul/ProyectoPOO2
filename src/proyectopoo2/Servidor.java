@@ -19,30 +19,28 @@ public class Servidor {
 
             OutputStream sal = cliente.getOutputStream();
             DataOutputStream salDatos = new DataOutputStream(sal);
+
             String mensaje;
             int comando;
-            
-do{
-            mensaje = entrada.readUTF();
+            int comando2;
 
-            //System.out.println("recibiendo:" + mensaje.toUpperCase());
-            
-            String cadena[];
-            String inf = " " ;
+            do {
+                mensaje = entrada.readUTF();
 
-            cadena = mensaje.split("/");
-            comando = Integer.parseInt(cadena[0]);
-            if(comando!=2){
-            
-           inf = cadena[1];
-            }
-            
-            
-            
+                //System.out.println("recibiendo:" + mensaje.toUpperCase());
+                String cadena[];
+                String inf = " ";
 
-            switch (comando) {
-                case 1:
-                    
+                cadena = mensaje.split("/");
+                comando = Integer.parseInt(cadena[0]);
+                if (comando != 2 && comando != 3) {
+
+                    inf = cadena[1];
+                }
+
+                switch (comando) {
+                    case 1:
+                        System.out.println("Altas");
                         // inf=inf.toUpperCase();
                         String nombre = cadena[1];
                         String apellido = cadena[2];
@@ -53,24 +51,37 @@ do{
                         double minimoR = Double.parseDouble(cadena[7]);
                         //obj
                         DatosCliente datos = new DatosCliente(nombre, apellido, correo, ocupacion, telefono, montoI, minimoR);
-                       
+
                         //agregando datos al vector
                         vector.addElement(datos);
 
-                        
-                        
-                    
-                    break;
-                case 2:
-             for (int i = 0; i < vector.size(); i++) {
+                        break;
+                    case 2:
+                        //consulta de vector
+                        System.out.println("consulta");
+                        for (int i = 0; i < vector.size(); i++) {
                             System.out.println("\n" + "Nombre:" + vector.elementAt(i).getNombre() + "\n" + " Apellido" + vector.elementAt(i).getApellido() + "\n" + " correo" + vector.elementAt(i).getCorreo()
                                     + "\n" + "Telefono:" + vector.elementAt(i).getTelefono() + "\n" + "Ocupacion:" + vector.elementAt(i).getOcupacion() + "\n" + "Monto inicial:" + vector.elementAt(i).getMontoI()
                                     + "\n" + "Monto a retirar:" + vector.elementAt(i).getMinimoR());
                         }
-                    break;
-            }
-            salDatos.writeUTF(inf);
-} while (comando != 99);
+
+                        break;
+                    case 3:
+
+                        boolean encontrado;
+                        for (int x = 0; x < vector.size(); x++) {
+                            DatosCliente p = vector.get(x);
+                            //if (p.getNombre().equals() {
+//                                encontrado = true;
+//                                break;
+//                            }
+
+                        }
+
+                        break;
+                }
+                salDatos.writeUTF(inf);
+            } while (comando != 99);
             cliente.close();
 
             ss.close();

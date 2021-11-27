@@ -23,6 +23,8 @@ class DatosCliente {
        
    }
 
+    
+
     /**
      * @return the nombre
      */

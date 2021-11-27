@@ -21,7 +21,7 @@ public class Cliente {
            //enviar
          double num=-1;
          do{
-            System.out.println("Ingresar datos23");
+            System.out.println("Ingresar datos");
             String mensaje=l.nextLine();
             salDatos.writeUTF(mensaje);
            }while(num!=0);
