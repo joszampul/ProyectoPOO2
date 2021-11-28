@@ -25,8 +25,10 @@ public class Cliente {
 
         do {
             System.out.println("l.Altas");
-            System.out.println("2 Consulta");
-            System.out.println("retiro");
+            System.out.println("2.Consulta");
+            System.out.println("3.retiro");
+            System.out.println("4.Deposito");
+            System.out.println("5.Modificaciones");
             opcion = teclado.nextInt();
 
             switch (opcion) {
@@ -77,6 +79,53 @@ public class Cliente {
 
                     String respuesta = miCliente.retiro(correo, montoR);
                     System.out.println(respuesta);
+
+                }
+
+                break;
+                case 4://deposito
+                {
+                    teclado.nextLine();
+                    System.out.println("Ingresa Correo");
+                    String correo = teclado.nextLine();
+
+                    System.out.println("Ingresa monto a depositar");
+                    String montoD = teclado.nextLine();
+
+                    String respuesta = miCliente.deposito(correo, montoD);
+                    System.out.println(respuesta);
+
+                }
+
+                break;
+                 case 5://Modificaciones
+                {
+                    teclado.nextLine();
+                    System.out.println("Ingresa Correo");
+                    String correo = teclado.nextLine();
+
+                    System.out.println("nombre Nuevo");
+                    String nombre = teclado.nextLine();
+
+                    System.out.println("apellido Nuevo");
+                    String apellido = teclado.nextLine();
+
+                    System.out.println("correo Nuevo");
+                    String correo_nuevo = teclado.nextLine();
+
+                    System.out.println("ocupacion nuevo");
+                    String ocupacion = teclado.nextLine();
+
+                    System.out.println("telefono nuevo");
+                    String telefono = teclado.nextLine();
+
+                    System.out.println("Monto Inicial nuevo");
+                    String montoI = teclado.nextLine();
+
+                    System.out.println("Minimo a Retiro nuevo");
+                    String minimoR = teclado.nextLine();
+
+                    miCliente.modificaciones(nombre, apellido, correo_nuevo, ocupacion, telefono, montoI, minimoR);
 
                 }
 
@@ -151,5 +200,30 @@ public class Cliente {
             System.out.println(e);
         }
         return respuesta;
+    }
+    public String deposito(String correo, String monto) {
+        String respuesta = "";
+        String peticion = "4/" + correo + "/" + monto;
+
+        try {
+            salDatos.writeUTF(peticion);
+            //recivir
+
+            respuesta = entrada.readUTF();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return respuesta;
+    }
+    
+    public void modificaciones(String nombre, String apellido, String correo_nuevo, String ocupacion, String telefono, String montoI, String minimoR) {
+        //validaciones
+        String peticion = "1/"+ nombre + "/" + apellido + "/" + correo_nuevo + "/" + ocupacion + "/" + telefono + "/" + montoI + "/" + minimoR;
+        try {
+            salDatos.writeUTF(peticion);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 }

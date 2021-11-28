@@ -90,7 +90,7 @@ public class Servidor {
                         for (int i = 0; i < vector.size(); i++) {
                             if (vector.elementAt(i).getCorreo().compareToIgnoreCase(correo) == 0) {
                                 vector.elementAt(i).setMontoI(vector.elementAt(i).getMontoI() - retiro);
-                                respuesta = String.valueOf(vector.elementAt(i).getMontoI());
+                                //respuesta = String.valueOf(vector.elementAt(i).getMontoI());
                             }
                         }
                         salDatos.writeUTF(respuesta);
@@ -101,6 +101,7 @@ public class Servidor {
                     {
                         System.out.println("deposito");
                         String correo = cadena[1];
+                         respuesta = "no se encontro";
                         double deposito = Double.parseDouble(cadena[2]);
                         for (int i = 0; i < vector.size(); i++) {
                             if (vector.elementAt(i).getCorreo().compareToIgnoreCase(correo) == 0) {
@@ -115,7 +116,7 @@ public class Servidor {
                     case 5://Modificaciones
                     {
                         //consulta de vector
-                        System.out.println("consulta");
+                        System.out.println("Modificaciones");
                         String correo = cadena[1];
                         
                         String nombre = cadena[2];
