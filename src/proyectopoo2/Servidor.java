@@ -146,6 +146,39 @@ public class Servidor {
                         }
                     }
                     break;
+                    case 6://Bajas
+                    {
+                        //consulta de vector
+                        System.out.println("Bajas");
+                        String correo = cadena[1];
+                        respuesta = "no se encontro";
+//                        String nombre = cadena[2];
+//                        String apellido = cadena[3];
+//                        String correo_nuevo = cadena[4];
+//                        String ocupacion = cadena[5];
+//                        String telefono = cadena[6];
+//                        double minimoR = Double.parseDouble(cadena[7]);
+                        
+                        for (int i = 0; i < vector.size(); i++) {
+                            if (vector.elementAt(i).getCorreo().compareToIgnoreCase(correo) == 0) {
+                                
+                                vector.remove(i);
+//                                vector.remove(i).getApellido();
+//                                vector.remove(i).getCorreo();
+//                               
+//                                vector.remove(i).getOcupacion();
+//                                vector.remove(i).getTelefono();
+//                                vector.remove(i).getMinimoR();
+                                
+//                                respuesta = "\n" + "Nombre:" + vector.remove(i).getNombre() + "\n" + " Apellido" + vector.remove(i).getApellido() + "\n" + " correo" + vector.remove(i).getCorreo()
+//                                        + "\n" + "Telefono:" + vector.remove(i).getTelefono() + "\n" + "Ocupacion:" + vector.remove(i).getOcupacion() + "\n" + "Monto inicial:" + vector.remove(i).getMontoI()
+//                                        + "\n" + "Monto a retirar:" + vector.remove(i).getMinimoR();
+                                
+                            }
+                            clientes_vec.actualizarRegistros(vector);
+                        }
+                    }
+                    break;
                 }
 //                salDatos.writeUTF(respuesta);
             } while (comando != 99);

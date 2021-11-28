@@ -29,6 +29,7 @@ public class Cliente {
             System.out.println("3.retiro");
             System.out.println("4.Deposito");
             System.out.println("5.Modificaciones");
+            System.out.println("6.Bajas");
             opcion = teclado.nextInt();
 
             switch (opcion) {
@@ -130,6 +131,18 @@ public class Cliente {
                 }
 
                 break;
+                case 6://bajas
+                {
+                    teclado.nextLine();
+                    System.out.println("Ingresa Correo");
+                    String correo = teclado.nextLine();
+
+                   
+                    miCliente.bajas(correo);
+
+                }
+
+                break;
             }
 
         } while (opcion != 0);
@@ -226,4 +239,14 @@ public class Cliente {
             System.out.println(e);
         }
     }
+   public void bajas(String correo) {
+        //validaciones
+        String peticion = "6/"+ correo;
+        try {
+            salDatos.writeUTF(peticion);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    } 
+    
 }
