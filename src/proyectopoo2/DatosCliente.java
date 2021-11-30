@@ -15,6 +15,7 @@ class DatosCliente implements Serializable{
    
    //constructor
    DatosCliente(String nombre,String  apellido,String correo,String ocupacion,String telefono,double montoI,double minimoR){
+
        this.nombre=nombre;
        this.apellido=apellido;
        this.correo=correo;
@@ -24,6 +25,8 @@ class DatosCliente implements Serializable{
        this.minimoR=minimoR;
        
    }
+
+    
 
     
 

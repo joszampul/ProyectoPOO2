@@ -5,6 +5,7 @@ import java.net.*;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static proyectopoo2.Servidor.vector;
 
 public class Cliente {
 
@@ -104,7 +105,7 @@ public class Cliente {
                     teclado.nextLine();
                     System.out.println("Ingresa Correo");
                     String correo = teclado.nextLine();
-
+                
                     System.out.println("nombre Nuevo");
                     String nombre = teclado.nextLine();
 
@@ -120,13 +121,10 @@ public class Cliente {
                     System.out.println("telefono nuevo");
                     String telefono = teclado.nextLine();
 
-                    System.out.println("Monto Inicial nuevo");
-                    String montoI = teclado.nextLine();
-
                     System.out.println("Minimo a Retiro nuevo");
                     String minimoR = teclado.nextLine();
 
-                    miCliente.modificaciones(nombre, apellido, correo_nuevo, ocupacion, telefono, montoI, minimoR);
+                    miCliente.modificaciones(correo,nombre, apellido, correo_nuevo, ocupacion, telefono, minimoR);
 
                 }
 
@@ -230,9 +228,9 @@ public class Cliente {
         return respuesta;
     }
     
-    public void modificaciones(String nombre, String apellido, String correo_nuevo, String ocupacion, String telefono, String montoI, String minimoR) {
+    public void modificaciones(String correo,String nombre, String apellido, String correo_nuevo, String ocupacion, String telefono, String minimoR) {
         //validaciones
-        String peticion = "1/"+ nombre + "/" + apellido + "/" + correo_nuevo + "/" + ocupacion + "/" + telefono + "/" + montoI + "/" + minimoR;
+        String peticion = "5/"+correo+"/"+ nombre + "/" + apellido + "/" + correo_nuevo + "/" + ocupacion + "/" + telefono + "/" + minimoR;
         try {
             salDatos.writeUTF(peticion);
         } catch (Exception e) {
@@ -248,5 +246,9 @@ public class Cliente {
             System.out.println(e);
         }
     } 
+
+   
+
+   
     
 }
