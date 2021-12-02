@@ -5,6 +5,8 @@
  */
 package proyectopoo2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author yaret
@@ -82,16 +84,12 @@ public class Banco extends javax.swing.JFrame {
         jTextField10 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         DepositoDeCuenta = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         txtCorreoDeposito = new javax.swing.JTextField();
         txtMontoDDeposito = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
         btnRegresarDesposito = new javax.swing.JButton();
         btnDepositarD = new javax.swing.JButton();
         Modificaciones = new javax.swing.JPanel();
@@ -118,6 +116,7 @@ public class Banco extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         txtCorreoC = new javax.swing.JTextField();
         btnCancelar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,10 +162,20 @@ public class Banco extends javax.swing.JFrame {
                 txtMontoICrearActionPerformed(evt);
             }
         });
+        txtMontoICrear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMontoICrearKeyTyped(evt);
+            }
+        });
 
         jLabel8.setText("Minimo a retirar");
 
         txtMinimoRCrear.setName("txtMinimoRetiro"); // NOI18N
+        txtMinimoRCrear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMinimoRCrearKeyTyped(evt);
+            }
+        });
 
         btnGuardarCrear.setText("Guardar");
         btnGuardarCrear.setName("btnGuardarAltas"); // NOI18N
@@ -446,6 +455,12 @@ public class Banco extends javax.swing.JFrame {
 
         jLabel13.setText("Monto a retirar");
 
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10KeyTyped(evt);
+            }
+        });
+
         jButton13.setText("Retirar");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -459,8 +474,6 @@ public class Banco extends javax.swing.JFrame {
                 jButton14ActionPerformed(evt);
             }
         });
-
-        jLabel14.setText("Su nuevo saldo es");
 
         javax.swing.GroupLayout RetiroDeCuentaLayout = new javax.swing.GroupLayout(RetiroDeCuenta);
         RetiroDeCuenta.setLayout(RetiroDeCuentaLayout);
@@ -483,19 +496,12 @@ public class Banco extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(RetiroDeCuentaLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jButton13))))
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(RetiroDeCuentaLayout.createSequentialGroup()
-                                .addComponent(jLabel14)
+                                .addComponent(jButton14)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(RetiroDeCuentaLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton14)))
-                .addContainerGap(78, Short.MAX_VALUE))
+                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         RetiroDeCuentaLayout.setVerticalGroup(
             RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -506,18 +512,15 @@ public class Banco extends javax.swing.JFrame {
                 .addGroup(RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
+                .addGap(18, 18, 18)
                 .addGroup(RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
                     .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13))
+                .addGap(38, 38, 38)
+                .addGroup(RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton14)
                     .addComponent(jButton13))
-                .addGap(31, 31, 31)
-                .addGroup(RetiroDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addComponent(jButton14)
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(230, Short.MAX_VALUE))
         );
 
         jLabel15.setText("Deposito a cuenta");
@@ -532,7 +535,11 @@ public class Banco extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setText("El saldo es de ");
+        txtMontoDDeposito.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMontoDDepositoKeyTyped(evt);
+            }
+        });
 
         btnRegresarDesposito.setText("Regresar");
         btnRegresarDesposito.addActionListener(new java.awt.event.ActionListener() {
@@ -553,32 +560,26 @@ public class Banco extends javax.swing.JFrame {
         DepositoDeCuentaLayout.setHorizontalGroup(
             DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
                 .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnRegresarDesposito)
-                            .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
-                                .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel16)
-                                    .addComponent(jLabel18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
-                                        .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(txtMontoDDeposito)
-                                            .addComponent(txtCorreoDeposito))
-                                        .addGap(26, 26, 26))
-                                    .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
-                                        .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                        .addComponent(btnRegresarDesposito)
+                        .addGap(49, 49, 49)
+                        .addComponent(btnDepositarD)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel15)
-                        .addGap(32, 32, 32)))
-                .addComponent(btnDepositarD)
-                .addContainerGap())
+                        .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel16))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtMontoDDeposito)
+                            .addComponent(txtCorreoDeposito))
+                        .addGap(115, 115, 115))))
+            .addGroup(DepositoDeCuentaLayout.createSequentialGroup()
+                .addGap(130, 130, 130)
+                .addComponent(jLabel15)
+                .addGap(121, 121, 121))
         );
         DepositoDeCuentaLayout.setVerticalGroup(
             DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,17 +591,14 @@ public class Banco extends javax.swing.JFrame {
                         .addGap(43, 43, 43)
                         .addComponent(jLabel16))
                     .addComponent(txtCorreoDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(txtMontoDDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDepositarD))
                 .addGap(31, 31, 31)
                 .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(btnRegresarDesposito)
+                    .addComponent(jLabel17)
+                    .addComponent(txtMontoDDeposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(DepositoDeCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRegresarDesposito)
+                    .addComponent(btnDepositarD))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -627,6 +625,12 @@ public class Banco extends javax.swing.JFrame {
         jLabel26.setText("Nuevo telefono ");
 
         jLabel27.setText("Nuevo monto de retiro ");
+
+        txtMontoM.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMontoMKeyTyped(evt);
+            }
+        });
 
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -742,6 +746,13 @@ public class Banco extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout CancelacionLayout = new javax.swing.GroupLayout(Cancelacion);
         Cancelacion.setLayout(CancelacionLayout);
         CancelacionLayout.setHorizontalGroup(
@@ -753,12 +764,15 @@ public class Banco extends javax.swing.JFrame {
                         .addComponent(jLabel28))
                     .addGroup(CancelacionLayout.createSequentialGroup()
                         .addGap(93, 93, 93)
-                        .addComponent(jLabel29)
-                        .addGap(28, 28, 28)
-                        .addComponent(txtCorreoC, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(CancelacionLayout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(btnCancelar)))
+                        .addGroup(CancelacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(CancelacionLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnCancelar))
+                            .addGroup(CancelacionLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(28, 28, 28)
+                                .addComponent(txtCorreoC, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(86, Short.MAX_VALUE))
         );
         CancelacionLayout.setVerticalGroup(
@@ -771,7 +785,9 @@ public class Banco extends javax.swing.JFrame {
                     .addComponent(jLabel29)
                     .addComponent(txtCorreoC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
-                .addComponent(btnCancelar)
+                .addGroup(CancelacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar)
+                    .addComponent(jButton1))
                 .addContainerGap(203, Short.MAX_VALUE))
         );
 
@@ -860,6 +876,7 @@ public class Banco extends javax.swing.JFrame {
 
     private void btnGuardarCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarCrearActionPerformed
         datos.altas(
+                
                 txtNombreCrear.getText(),
                 txtApellidoCrear.getText(),
                 txtCorreoCrear.getText(),
@@ -868,6 +885,23 @@ public class Banco extends javax.swing.JFrame {
                 txtMontoICrear.getText(),
                 txtMinimoRCrear.getText());
 
+        if(txtNombreCrear.getText().equals("") || txtApellidoCrear.getText().equals("") ||txtCorreoCrear.getText().equals("") ||
+                txtOcupacionCrear.getText().equals("") ||txtTelefonoCrear.getText().equals("")|| txtMontoICrear.getText().equals("")
+                || txtMinimoRCrear.getText().equals("")){
+            
+            JOptionPane.showMessageDialog(null,"Por favor ingrese los datos faltantes");
+        }
+        else{
+            double montoI = Double.parseDouble(txtMontoICrear.getText());
+            
+            if(montoI>50)
+            JOptionPane.showMessageDialog(null, "Los datos han sido guardados con éxito!");
+        }
+         
+          
+          
+          
+          
 
     }//GEN-LAST:event_btnGuardarCrearActionPerformed
 
@@ -904,7 +938,11 @@ public class Banco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConsultaCuentaActionPerformed
 
     private void btnConsultaCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultaCActionPerformed
-      jTextArea1.setText(datos.consulta(txtCorreoConsulta.getText()));  
+      jTextArea1.setText(datos.consulta(txtCorreoConsulta.getText())); 
+      if(txtCorreoConsulta.getText().equals("")){
+          JOptionPane.showMessageDialog(null,"Por favor ingrese su correo");
+          
+      }
 
 //        jTextArea1.append("Nombre:" + txtNombreCrear.getText() + "\n");
 //        jTextArea1.append("Apellido:" + txtApellidoCrear.getText() + "\n");
@@ -934,7 +972,10 @@ public class Banco extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         datos.retiro(jTextField9.getText(), jTextField10.getText());
-
+if(jTextField9.getText().equals("") || jTextField10.getText().equals("") ){
+          JOptionPane.showMessageDialog(null,"Ingrese los datos faltantes");
+          
+      }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -1001,14 +1042,29 @@ public class Banco extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegresarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        datos.modificaciones(txtCorreoMM.getText(),
+        datos.modificaciones(txtCorreoM.getText(),
                 txtNombreM.getText(),
                 txtApellidoM.getText(),
-                txtCorreoM.getText(),
+                txtCorreoMM.getText(),
                 txtOcupacionM.getText(),
                 txtTelefonoM.getText(),
-                txtMontoM.getText()
-                );
+                txtMontoM.getText());
+                
+        if(txtCorreoM.getText().equals("") || txtNombreM.getText().equals("") ||txtApellidoM.getText().equals("") ||
+                txtCorreoMM.getText().equals("") ||txtOcupacionM.getText().equals("")|| txtTelefonoM.getText().equals("")
+                || txtMontoM.getText().equals("")){
+            
+            JOptionPane.showMessageDialog(null,"Por favor ingrese los datos faltantes");
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Los datos han sido guardados con éxito!");
+        }       
+        
+        
+        
+        
+        
+        
         
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -1027,6 +1083,60 @@ public class Banco extends javax.swing.JFrame {
          Cancelacion.setVisible(true);
     }//GEN-LAST:event_btnCancelacionCuentaActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      jPanel2.setVisible(true);
+        CreacionDeCuenta.setVisible(false);
+        ConsultaDeCuenta.setVisible(false);
+        RetiroDeCuenta.setVisible(false);
+         DepositoDeCuenta.setVisible(false);
+          Modificaciones.setVisible(false);
+           Cancelacion.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtMontoICrearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoICrearKeyTyped
+      char validar=evt.getKeyChar();
+      if(Character.isLetter(validar)){
+          getToolkit().beep();
+          evt.consume();
+          JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+      }
+    }//GEN-LAST:event_txtMontoICrearKeyTyped
+
+    private void txtMinimoRCrearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMinimoRCrearKeyTyped
+        char validar=evt.getKeyChar();
+      if(Character.isLetter(validar)){
+          getToolkit().beep();
+          evt.consume();
+          JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+      }
+    }//GEN-LAST:event_txtMinimoRCrearKeyTyped
+
+    private void jTextField10KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyTyped
+      char validar=evt.getKeyChar();
+      if(Character.isLetter(validar)){
+          getToolkit().beep();
+          evt.consume();
+          JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+      }
+    }//GEN-LAST:event_jTextField10KeyTyped
+
+    private void txtMontoDDepositoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoDDepositoKeyTyped
+       char validar=evt.getKeyChar();
+      if(Character.isLetter(validar)){
+          getToolkit().beep();
+          evt.consume();
+          JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+      }
+    }//GEN-LAST:event_txtMontoDDepositoKeyTyped
+
+    private void txtMontoMKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoMKeyTyped
+        char validar=evt.getKeyChar();
+      if(Character.isLetter(validar)){
+          getToolkit().beep();
+          evt.consume();
+          JOptionPane.showMessageDialog(rootPane, "Ingrese solo numeros");
+    }//GEN-LAST:event_txtMontoMKeyTyped
+    }
     /**
      * @param args the command line arguments
      */
@@ -1086,6 +1196,7 @@ public class Banco extends javax.swing.JFrame {
     private javax.swing.JButton btnRegresarCrear;
     private javax.swing.JButton btnRegresarDesposito;
     private javax.swing.JButton btnRetiro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JLabel jLabel1;
@@ -1093,11 +1204,9 @@ public class Banco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1121,8 +1230,6 @@ public class Banco extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField txtApellidoCrear;
     private javax.swing.JTextField txtApellidoM;

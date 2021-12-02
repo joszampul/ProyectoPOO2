@@ -3,6 +3,7 @@ package proyectopoo2;
 import java.io.*;
 import java.net.*;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 
 public class Servidor {
 
@@ -71,7 +72,7 @@ public class Servidor {
                                         + "\n" + "Telefono:" + vector.elementAt(i).getTelefono() + "\n" + "Ocupacion:" + vector.elementAt(i).getOcupacion() + "\n" + "Monto inicial:" + vector.elementAt(i).getMontoI()
                                         + "\n" + "Monto a retirar:" + vector.elementAt(i).getMinimoR());
 
-                                respuesta = "\n" + "Nombre:" + vector.elementAt(i).getNombre() + "\n" + " Apellido" + vector.elementAt(i).getApellido() + "\n" + " correo" + vector.elementAt(i).getCorreo()
+                                respuesta = "\n" + "Nombre:" + vector.elementAt(i).getNombre() + "\n" + "Apellido:" + vector.elementAt(i).getApellido() + "\n" + "correo:" + vector.elementAt(i).getCorreo()
                                         + "\n" + "Telefono:" + vector.elementAt(i).getTelefono() + "\n" + "Ocupacion:" + vector.elementAt(i).getOcupacion() + "\n" + "Monto inicial:" + vector.elementAt(i).getMontoI()
                                         + "\n" + "Monto a retirar:" + vector.elementAt(i).getMinimoR();
                                 break;
@@ -89,8 +90,18 @@ public class Servidor {
                         double retiro = Double.parseDouble(cadena[2]);
                         for (int i = 0; i < vector.size(); i++) {
                             if (vector.elementAt(i).getCorreo().compareToIgnoreCase(correo) == 0) {
-                                vector.elementAt(i).setMontoI(vector.elementAt(i).getMontoI() - retiro);
-                                //respuesta = String.valueOf(vector.elementAt(i).getMontoI());
+
+                                if (vector.elementAt(i).getMontoI() < retiro) {
+                                    //System.out.println("no cuenta con el saldo suficiente");
+                                    respuesta = "no cuenta con el saldo suficiente";
+                                   
+                                } else if (vector.elementAt(i).getMinimoR() < retiro) {
+                                   respuesta= "Usted cuenta con un limite de retiro";
+                                } else {
+                                  vector.elementAt(i).setMontoI(vector.elementAt(i).getMontoI() - retiro);
+                                    
+                                }
+                               
                             }
                         }
                         salDatos.writeUTF(respuesta);
@@ -144,6 +155,7 @@ public class Servidor {
                             }
                             clientes_vec.actualizarRegistros(vector);
                         }
+                        
                     }
                     break;
                     case 6://Bajas
@@ -161,6 +173,7 @@ public class Servidor {
                             }
                             clientes_vec.actualizarRegistros(vector);
                         }
+                        salDatos.writeUTF(respuesta);
                     }
                     break;
                 }
