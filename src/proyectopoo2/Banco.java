@@ -20,6 +20,7 @@ public class Banco extends javax.swing.JFrame {
      */
     public Banco() {
 
+    	/**comentario para la prueba de push*/
         initComponents();
         datos= new Cliente();
         datos.conectar();
